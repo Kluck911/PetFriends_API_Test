@@ -1,11 +1,10 @@
-from settings import email, passwd
 import json
 import requests
 
 
 class PetFriends:
     def __init__(self):
-        self.base_url = 'http://petfriends1.herokuapp.com/'
+        self.base_url = 'https://petfriends1.herokuapp.com/'
 
     def get_API_key(self, email_, passwd_):
 
@@ -23,7 +22,3 @@ class PetFriends:
             result = res.text
         return status, result
 
-
-a = PetFriends()
-print(a.get_API_key(email, passwd)[1].get('key'))
-print(a.base_url)

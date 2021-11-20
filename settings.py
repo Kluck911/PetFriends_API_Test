@@ -1,2 +1,2 @@
-email = 'afvaegffewafgwe@gmail.com'
-passwd = 'afwwfwaffaw'
+user_email = 'afvaegffewafgwe@gmail.com'
+user_passwd = 'afwwfwaffaw'

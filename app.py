@@ -6,11 +6,11 @@ class PetFriends:
     def __init__(self):
         self.base_url = 'https://petfriends1.herokuapp.com/'
 
-    def get_API_key(self, email_, passwd_):
+    def get_API_key(self, email, passwd):
 
         headers = {
-            'email': email_,
-            'password': passwd_,
+            'email': email,
+            'password': passwd,
         }
 
         res = requests.get(self.base_url + 'api/key', headers=headers)

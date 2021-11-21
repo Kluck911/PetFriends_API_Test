@@ -20,7 +20,7 @@ class PetFriends:
             result = res.json()
         except json.decoder.JSONDecodeError:
             result = res.text
-        return status, result
+        return status, result.get('key')
 
     def get_list_of_pets(self, auth_key, filter):
 

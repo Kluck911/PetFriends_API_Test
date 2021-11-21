@@ -5,10 +5,10 @@ from settings import user_email, user_passwd
 pf = PetFriends()
 
 
-def test_get_api_key_valid_user(user_email, passwd=user_passwd):
+def test_get_api_key_valid_user(email=user_email, passwd=user_passwd):
     status, result = pf.get_api_key(email, passwd)
     assert status == 200
-    assert 'key' in result
+    assert result is not None
 
 
 def test_get_list_of_pets_with_valid_key(filter=''):

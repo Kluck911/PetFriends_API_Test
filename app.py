@@ -67,6 +67,20 @@ class PetFriends:
             result = res.json()
         except json.decoder.JSONDecodeError:
             result = res.text
-        print(result)
-        print(status)
+        return status, result
+
+    def delete_pet(self, auth_key, pet_id: str) -> json:
+        """Метод отправляет на сервер запрос на удаление питомца по указанному ID и возвращает
+                статус запроса и результат в формате JSON с текстом уведомления о успешном удалении.
+                На сегодняшний день тут есть баг - в result приходит пустая строка, но status при этом = 200"""
+
+        headers = {'auth_key': auth_key['key']}
+        res = requests.delete(self.base_url + 'api/pets/' + pet_id, headers=headers)
+        status = res.status_code
+        result = ''
+
+        try:
+            res = res.json()
+        except json.decoder.JSONDecodeError:
+            res = res.text
         return status, result

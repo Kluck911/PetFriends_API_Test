@@ -45,7 +45,7 @@ class PetFriends:
             result = res.text
         return status, result
 
-    def add_new_pet(self, auth_key: json, name: str, animal_type: str, age: str, pet_photo: str) -> json:
+    def add_new_pet(self, auth_key: json, name: str, animal_type: str, age: int, pet_photo: str) -> json:
         """Метод отправляет (постит) на сервер данные о добавляемом питомце и возвращает статус
                 запроса на сервер и результат в формате JSON с данными добавленного питомца"""
 
@@ -53,7 +53,7 @@ class PetFriends:
             fields={
                 'name': name,
                 'animal_type': animal_type,
-                'age': age,
+                'age': str(age),
                 'pet_photo': (pet_photo, open(pet_photo, 'rb'), 'image/jpeg')
             }
         )
@@ -84,3 +84,5 @@ class PetFriends:
         except json.decoder.JSONDecodeError:
             res = res.text
         return status, result
+
+    def update_pet_info(self, auth_key, ):

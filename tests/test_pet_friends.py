@@ -27,7 +27,7 @@ def test_get_list_of_pets_with_valid_key(filter=''):
 
 
 def test_add_new_pet_with_valid_key(name='Гаага', animal_type='Гусь',
-                                    age='3', pet_photo='images/goose.jpg'):
+                                    age=3, pet_photo='images/goose.jpg'):
     """Проверяем что можно добавить питомца с корректными данными"""
 
     pet_photo = os.path.join(os.path.dirname(__file__), pet_photo)
@@ -46,7 +46,7 @@ def tests_delete_pet():
     _, my_pets = pf.get_list_of_pets(auth_key, 'my_pets')
 
     if len(my_pets) == 0:
-        pf.add_new_pet(auth_key, 'Гаага111', 'Гусь111', '999', 'images/goose.jpg')
+        pf.add_new_pet(auth_key, 'Гаага111', 'Гусь111', 999, 'images/goose.jpg')
         _, my_pets = pf.get_list_of_pets(auth_key, 'my_pets')
 
     pet_id = my_pets['pets'][0]['id']

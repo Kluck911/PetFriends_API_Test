@@ -56,3 +56,4 @@ def tests_delete_pet():
 
     assert status == 200
     assert pet_id not in my_pets.values()
+

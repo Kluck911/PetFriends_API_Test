@@ -39,7 +39,7 @@ def test_add_new_pet_with_valid_key(name='Гаага', animal_type='Гусь',
     assert result['name'] == name
 
 
-def tests_delete_pet():
+def test_delete_pet():
     """Проверяем возможность удаления питомца"""
 
     _, auth_key = pf.get_api_key(user_email, user_passwd)
@@ -57,3 +57,17 @@ def tests_delete_pet():
     assert status == 200
     assert pet_id not in my_pets.values()
 
+
+def test_successful_update_pet_info(name='Гуся', animal_type='Гус', age=5):
+    """Проверяем возможность обновления информации о питомце"""
+
+    _, auth_key = pf.get_api_key(user_email, user_passwd)
+    _, my_pets = pf.get_list_of_pets(auth_key, 'my_pets')
+
+    if len(my_pets['pets']) > 0:
+        status, result = pf.update_pet_info(auth_key, my_pets['pets'][0]['id'], name, animal_type, age)
+
+        assert status == 200
+        assert result['name'] == name
+    else:
+        raise Exception('У Вас нет питомцев, плак, плак :(')

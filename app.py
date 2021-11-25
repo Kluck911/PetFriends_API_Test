@@ -80,9 +80,9 @@ class PetFriends:
         result = ''
 
         try:
-            res = res.json()
+            result = res.json()
         except json.decoder.JSONDecodeError:
-            res = res.text
+            result = res.text
         return status, result
 
     def update_pet_info(self, auth_key: json, pet_id: str, name: str,
@@ -93,11 +93,11 @@ class PetFriends:
         headers = {'auth_key': auth_key['key']}
         data = {
             'name': name,
-            'animal_type': animal_type,
-            'age': age
+            'age': age,
+            'animal_type': animal_type
         }
 
-        res = requests.delete(self.base_url + 'api/pets/' + pet_id, headers=headers, data=data)
+        res = requests.put(self.base_url + 'api/pets/' + pet_id, headers=headers, data=data)
         status = res.status_code
         result = ''
 

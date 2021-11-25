@@ -37,3 +37,22 @@ def test_add_new_pet_with_valid_key(name='Гаага', animal_type='Гусь',
 
     assert status == 200
     assert result['name'] == name
+
+
+def tests_delete_pet():
+    """Проверяем возможность удаления питомца"""
+
+    _, auth_key = pf.get_api_key(user_email, user_passwd)
+    _, my_pets = pf.get_list_of_pets(auth_key, 'my_pets')
+
+    if len(my_pets) == 0:
+        pf.add_new_pet(auth_key, 'Гаага111', 'Гусь111', '999', 'images/goose.jpg')
+        _, my_pets = pf.get_list_of_pets(auth_key, 'my_pets')
+
+    pet_id = my_pets['pets'][0]['id']
+    status, _ = pf.delete_pet(auth_key, pet_id)
+
+    _, my_pets = pf.get_list_of_pets(auth_key, 'my_pets')
+
+    assert status == 200
+    assert pet_id not in my_pets.values()

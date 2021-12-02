@@ -64,7 +64,7 @@ def test_add_new_pet_with_petpic_not_jpeg(name='Гаага', animal_type='Гус
     # 500 незадокументированая ошибка
 
 
-def test_delete_pet():
+def test_delete_pet_with_invalid_key():
     """ Проверяем что запрос удаления питомца возвращает статус 403 если
     полученный ключ не валидный"""
 
@@ -72,4 +72,29 @@ def test_delete_pet():
     status, _ = pf.get_list_of_pets(auth_key, 'my_pets')
 
     assert status == 403
+
+
+def test_successful_update_pet_info_with_invalid_key(name='Гуся', animal_type='Гус', age=5):
+    """Проверяем возможность обновления информации c неверным ключем"""
+
+    auth_key = {'key': '111'}
+    _, my_pets = pf.get_list_of_pets(auth_key, 'my_pets')
+
+    status, _ = pf.get_list_of_pets(auth_key, 'my_pets')
+
+    assert status == 403
+
+
+def test_successful_update_pet_info(name='Гуся', animal_type='Гус', age=5):
+    """Проверяем возможность обновления информации о питомце"""
+
+    _, auth_key = pf.get_api_key(user_email, user_passwd)
+    _, my_pets = pf.get_list_of_pets(auth_key, 'my_pets')
+
+    if len(my_pets['pets']) > 0:
+        status, result = pf.update_pet_info(auth_key, my_pets['pets'][0]['id'], 'name', animal_type, age)
+
+        assert status == 200
+
+
 

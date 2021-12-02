@@ -83,3 +83,20 @@ def test_add_pet_simple_with_valid_key(name='Гагага', animal_type='Гус�
     assert status == 200
     assert result['name'] == name
 
+
+def test_add_photo_of_pet_with_valid_key(name='Гусек', animal_type='Гусь', age=35, pet_photo='images/goose2.jpg'):
+    """Проверяем что можно добавить фото для питомца созданного при помощи 
+    add_pet_simple с корректными данными"""
+
+    pet_photo = os.path.join(os.path.dirname(__file__), pet_photo)
+
+    _, auth_key = pf.get_api_key(user_email, user_passwd)
+    _, my_pet_without_photo = pf.add_pet_simple(auth_key, name, animal_type, age)
+    pet_id = my_pet_without_photo['id']
+
+    status, result = pf.add_photo_of_pet(auth_key, pet_id, pet_photo)
+
+    assert status == 200
+    assert result['name'] == name
+
+

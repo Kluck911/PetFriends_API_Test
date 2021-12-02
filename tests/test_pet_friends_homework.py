@@ -27,3 +27,5 @@ def test_get_list_of_pets_with_invalid_key(filter=''):
     status, _ = pf.get_list_of_pets({'key': '111'}, filter)
 
     assert status == 403
+
+

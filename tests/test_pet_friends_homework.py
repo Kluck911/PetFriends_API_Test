@@ -39,7 +39,7 @@ def test_get_list_of_pets_with_invalid_key(filter=''):
 
 
 def test_add_new_pet_with_invalid_key(name='Гаага', animal_type='Гусь',
-                                    age=3, pet_photo='images/goose.jpg'):
+                                      age=3, pet_photo='images/goose.jpg'):
     """ Проверяем что запрос всех питомцев возвращает статус 403 если
     полученный ключ не валидный"""
 
@@ -52,7 +52,7 @@ def test_add_new_pet_with_invalid_key(name='Гаага', animal_type='Гусь',
 
 
 def test_add_new_pet_with_petpic_not_jpeg(name='Гаага', animal_type='Гусь',
-                                    age=3, pet_photo='images/petpic.jpg'):
+                                          age=3, pet_photo='images/petpic.jpg'):
     """Проверяем что нельзя загрузить "битую картинку"""
 
     pet_photo = os.path.join(os.path.dirname(__file__), pet_photo)
@@ -60,8 +60,7 @@ def test_add_new_pet_with_petpic_not_jpeg(name='Гаага', animal_type='Гус
 
     status, result = pf.add_new_pet(auth_key, name, animal_type, age, pet_photo)
 
-    assert status == 500
-    # 500 незадокументированая ошибка
+    assert status == 500  # 500 незадокументированая ошибка
 
 
 def test_delete_pet_with_invalid_key():
@@ -74,7 +73,7 @@ def test_delete_pet_with_invalid_key():
     assert status == 403
 
 
-def test_successful_update_pet_info_with_invalid_key(name='Гуся', animal_type='Гус', age=5):
+def test_successful_update_pet_info_with_invalid_key():
     """Проверяем возможность обновления информации c неверным ключем"""
 
     auth_key = {'key': '111'}
@@ -85,16 +84,25 @@ def test_successful_update_pet_info_with_invalid_key(name='Гуся', animal_typ
     assert status == 403
 
 
-def test_successful_update_pet_info(name='Гуся', animal_type='Гус', age=5):
-    """Проверяем возможность обновления информации о питомце"""
+def test_successful_update_pet_id_incorrect(name='Гуся', animal_type='Гус', age=2):
+    """Проверяем возникновение ошибки 400, если pet id введен некорректно"""
 
     _, auth_key = pf.get_api_key(user_email, user_passwd)
     _, my_pets = pf.get_list_of_pets(auth_key, 'my_pets')
 
     if len(my_pets['pets']) > 0:
-        status, result = pf.update_pet_info(auth_key, my_pets['pets'][0]['id'], 'name', animal_type, age)
+        status, result = pf.update_pet_info(auth_key, 'ggewegewgwewgewegw', name, animal_type, age)
 
-        assert status == 200
+        assert status == 400
 
 
+def test_successful_update_pet_id_is_null(name='Гуся', animal_type='Гус', age=2):
+    """Проверяем возникновение ошибки 404, если pet id отсутствует"""
 
+    _, auth_key = pf.get_api_key(user_email, user_passwd)
+    _, my_pets = pf.get_list_of_pets(auth_key, 'my_pets')
+
+    if len(my_pets['pets']) > 0:
+        status, result = pf.update_pet_info(auth_key, '', name, animal_type, age)
+
+        assert status == 404  # 500 незадокументированая ошибка

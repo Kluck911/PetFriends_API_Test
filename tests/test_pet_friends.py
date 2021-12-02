@@ -71,3 +71,15 @@ def test_successful_update_pet_info(name='Гуся', animal_type='Гус', age=5
         assert result['name'] == name
     else:
         raise Exception('У Вас нет питомцев, плак, плак :(')
+
+
+def test_add_pet_simple_with_valid_key(name='Гагага', animal_type='Гусь', age=3):
+    """Проверяем что можно добавить питомца с корректными данными"""
+
+    _, auth_key = pf.get_api_key(user_email, user_passwd)
+
+    status, result = pf.add_pet_simple(auth_key, name, animal_type, age)
+
+    assert status == 200
+    assert result['name'] == name
+

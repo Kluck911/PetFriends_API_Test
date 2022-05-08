@@ -6,7 +6,9 @@
       <excludeFolder url="file://$MODULE_DIR$/venv_pc_2" />
       <excludeFolder url="file://$MODULE_DIR$/venv_pc" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.9 (PetFriends_API_Test)" jdkType="Python SDK" />
+    <content url="file://$MODULE_DIR$/venv_pc" />
+    <content url="file://$MODULE_DIR$/venv_pc_2" />
+    <orderEntry type="jdk" jdkName="Python 3.10 (venv)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>

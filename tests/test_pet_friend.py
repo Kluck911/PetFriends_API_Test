@@ -237,4 +237,3 @@ def time_delta():
     yield
     stop_time = datetime.now()
     print(f'\nТест шел: {stop_time-start_time}')
-

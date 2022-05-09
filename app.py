@@ -1,12 +1,14 @@
 import json
 import requests
 from requests_toolbelt import MultipartEncoder
+from decorators import log
 
 
 class PetFriends:
     def __init__(self):
         self.base_url = 'https://petfriends1.herokuapp.com/'
 
+    @log
     def get_api_key(self, email: str, passwd: str) -> json:
         """Метод делает запрос к API сервера и возвращает статус запроса и результат в формате
                 JSON с уникальным ключем пользователя, найденного по указанным email и паролем"""
@@ -26,6 +28,7 @@ class PetFriends:
             result = res.text
         return status, result
 
+    @log
     def get_list_of_pets(self, auth_key: json, filter: str = '') -> json:
         """Метод делает запрос к API сервера и возвращает статус запроса и результат в формате JSON
                 со списком наденных питомцев, совпадающих с фильтром. На данный момент фильтр может иметь
@@ -45,6 +48,7 @@ class PetFriends:
             result = res.text
         return status, result
 
+    @log
     def add_new_pet(self, auth_key: json, name: str, animal_type: str, age: int, pet_photo: str) -> json:
         """Метод отправляет (постит) на сервер данные о добавляемом питомце и возвращает статус
                 запроса на сервер и результат в формате JSON с данными добавленного питомца"""
@@ -69,6 +73,7 @@ class PetFriends:
             result = res.text
         return status, result
 
+    @log
     def delete_pet(self, auth_key: json, pet_id: str) -> json:
         """Метод отправляет на сервер запрос на удаление питомца по указанному ID и возвращает
                 статус запроса и результат в формате JSON с текстом уведомления о успешном удалении.
@@ -85,6 +90,7 @@ class PetFriends:
             result = res.text
         return status, result
 
+    @log
     def update_pet_info(self, auth_key: json, pet_id: str, name: str,
                         animal_type: str, age: int) -> json:
         """Метод отправляет запрос на сервер о обновлении данных питомца по указанному ID и
@@ -107,6 +113,7 @@ class PetFriends:
             result = res.text
         return status, result
 
+    @log
     def add_pet_simple(self, auth_key: json, name: str, animal_type: str, age: int) -> json:
         """Метод отправляет (постит) на сервер данные о добавляемом питомце без фото и возвращает статус
                         запроса на сервер и результат в формате JSON с данными добавленного питомца"""
@@ -129,6 +136,7 @@ class PetFriends:
             result = res.text
         return status, result
 
+    @log
     def add_photo_of_pet(self, auth_key: json, pet_id: str, pet_photo: str) -> json:
         """Метод отправляет (постит) на сервер фото питомца pet_id и возвращает статус
                         запроса на сервер и результат в формате JSON с данными добавленного питомца"""

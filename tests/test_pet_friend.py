@@ -1,8 +1,9 @@
 import pytest
+import os
 from app import PetFriends
 from settings import invalid_user, invalid_passwd, user_email, user_passwd
 from datetime import datetime
-import os
+from decorators import log
 
 
 pf = PetFriends()
@@ -36,15 +37,16 @@ class TestsPetsAPI:
         assert status == 200
         assert 'key' in result
 
+
     @pytest.mark.act
     @pytest.mark.pos
     def test_get_list_of_pets_with_valid_key(self, get_key, filter=''):
         """ Проверяем что запрос всех питомцев возвращает не пустой список. """
 
-        _, auth_key = pf.get_api_key(user_email, user_passwd)
         status, result = pf.get_list_of_pets(get_key, filter)
         assert status == 200
         assert len(result['pets']) > 0
+
 
     @pytest.mark.act
     @pytest.mark.pos
@@ -59,6 +61,7 @@ class TestsPetsAPI:
         assert status == 200
         assert result['name'] == name
 
+    @log
     @pytest.mark.act
     @pytest.mark.pos
     def test_delete_pet(self, get_key):

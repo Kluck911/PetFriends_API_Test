@@ -1,10 +1,9 @@
 import pytest
 import os
+import sys
 from app import PetFriends
 from settings import invalid_user, invalid_passwd, user_email, user_passwd
 from datetime import datetime
-from decorators import log
-
 
 pf = PetFriends()
 
@@ -37,7 +36,6 @@ class TestsPetsAPI:
         assert status == 200
         assert 'key' in result
 
-
     @pytest.mark.act
     @pytest.mark.pos
     def test_get_list_of_pets_with_valid_key(self, get_key, filter=''):
@@ -46,7 +44,6 @@ class TestsPetsAPI:
         status, result = pf.get_list_of_pets(get_key, filter)
         assert status == 200
         assert len(result['pets']) > 0
-
 
     @pytest.mark.act
     @pytest.mark.pos
@@ -61,7 +58,6 @@ class TestsPetsAPI:
         assert status == 200
         assert result['name'] == name
 
-    @log
     @pytest.mark.act
     @pytest.mark.pos
     def test_delete_pet(self, get_key):
@@ -108,7 +104,8 @@ class TestsPetsAPI:
 
     @pytest.mark.act
     @pytest.mark.pos
-    def test_add_photo_of_pet_with_valid_key(self, get_key, name='Гусек', animal_type='Гусь', age=35, pet_photo='images/goose2.jpg'):
+    def test_add_photo_of_pet_with_valid_key(self, get_key, name='Гусек', animal_type='Гусь', age=35,
+                                             pet_photo='images/goose2.jpg'):
         """Проверяем что можно добавить фото для питомца созданного при помощи
         add_pet_simple с корректными данными"""
 
@@ -210,6 +207,7 @@ class TestsPetsAPI:
 
     @pytest.mark.act
     @pytest.mark.neg
+    @pytest.mark.xfail(sys.platform == "win32", reason="Ошибка в системной библиотеке")
     def test_successful_update_pet_id_incorrect(self, get_key, name='Гуся', animal_type='Гус', age=2):
         """Проверяем возникновение ошибки 400, если pet id введен некорректно"""
 
@@ -231,7 +229,6 @@ class TestsPetsAPI:
             status, result = pf.update_pet_info(get_key, '', name, animal_type, age)
 
             assert status == 404
-
 
 
 @pytest.fixture(autouse=True)

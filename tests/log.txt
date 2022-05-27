@@ -350,3 +350,594 @@
 <title>404 Not Found</title>
 <h1>Not Found</h1>
 <p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>
+
+
+ 2022-05-27 11:32:06.607943  ----------------------------Вызываем get_api_key-------------------------------
+Параметры запроса:
+
+'afvaegffewafgwe@gmail.com', 'afwwfwaffaw'
+
+ 2022-05-27 11:32:07.323924  ---------------------------Функция 'get_api_key' вернула значение-----------------
+
+Код ответа - 404
+
+Тело ответа:
+
+ <!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>Heroku | Application Error</title>
+    <style media="screen">
+      html,body,iframe {
+        margin: 0;
+        padding: 0;
+      }
+      html,body {
+        height: 100%;
+        overflow: hidden;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <iframe src="//www.herokucdn.com/error-pages/no-such-app.html"></iframe>
+  </body>
+</html>
+
+
+ 2022-05-27 11:32:07.501477  ----------------------------Вызываем get_api_key-------------------------------
+Параметры запроса:
+
+'afvaegffewafgwe@gmail.com', 'afwwfwaffaw'
+
+ 2022-05-27 11:32:08.022279  ---------------------------Функция 'get_api_key' вернула значение-----------------
+
+Код ответа - 404
+
+Тело ответа:
+
+ <!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>Heroku | Application Error</title>
+    <style media="screen">
+      html,body,iframe {
+        margin: 0;
+        padding: 0;
+      }
+      html,body {
+        height: 100%;
+        overflow: hidden;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <iframe src="//www.herokucdn.com/error-pages/no-such-app.html"></iframe>
+  </body>
+</html>
+
+
+ 2022-05-27 11:32:08.122042  ----------------------------Вызываем get_api_key-------------------------------
+Параметры запроса:
+
+'caswqacwqwqcwqcwcq', 'afwwfwaffaw'
+
+ 2022-05-27 11:32:08.697543  ---------------------------Функция 'get_api_key' вернула значение-----------------
+
+Код ответа - 404
+
+Тело ответа:
+
+ <!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>Heroku | Application Error</title>
+    <style media="screen">
+      html,body,iframe {
+        margin: 0;
+        padding: 0;
+      }
+      html,body {
+        height: 100%;
+        overflow: hidden;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <iframe src="//www.herokucdn.com/error-pages/no-such-app.html"></iframe>
+  </body>
+</html>
+
+
+ 2022-05-27 11:32:08.755391  ----------------------------Вызываем get_api_key-------------------------------
+Параметры запроса:
+
+'afvaegffewafgwe@gmail.com', 'vevgwewewv'
+
+ 2022-05-27 11:32:09.316419  ---------------------------Функция 'get_api_key' вернула значение-----------------
+
+Код ответа - 404
+
+Тело ответа:
+
+ <!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>Heroku | Application Error</title>
+    <style media="screen">
+      html,body,iframe {
+        margin: 0;
+        padding: 0;
+      }
+      html,body {
+        height: 100%;
+        overflow: hidden;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <iframe src="//www.herokucdn.com/error-pages/no-such-app.html"></iframe>
+  </body>
+</html>
+
+
+ 2022-05-27 11:32:09.326417  ----------------------------Вызываем get_api_key-------------------------------
+Параметры запроса:
+
+'caswqacwqwqcwqcwcq', 'vevgwewewv'
+
+ 2022-05-27 11:32:09.852642  ---------------------------Функция 'get_api_key' вернула значение-----------------
+
+Код ответа - 404
+
+Тело ответа:
+
+ <!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>Heroku | Application Error</title>
+    <style media="screen">
+      html,body,iframe {
+        margin: 0;
+        padding: 0;
+      }
+      html,body {
+        height: 100%;
+        overflow: hidden;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <iframe src="//www.herokucdn.com/error-pages/no-such-app.html"></iframe>
+  </body>
+</html>
+
+
+ 2022-05-27 11:32:09.896523  ----------------------------Вызываем get_list_of_pets-------------------------------
+Параметры запроса:
+
+{'key': '111'}, ''
+
+ 2022-05-27 11:32:10.402987  ---------------------------Функция 'get_list_of_pets' вернула значение-----------------
+
+Код ответа - 404
+
+Тело ответа:
+
+ <!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>Heroku | Application Error</title>
+    <style media="screen">
+      html,body,iframe {
+        margin: 0;
+        padding: 0;
+      }
+      html,body {
+        height: 100%;
+        overflow: hidden;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <iframe src="//www.herokucdn.com/error-pages/no-such-app.html"></iframe>
+  </body>
+</html>
+
+
+ 2022-05-27 11:32:10.440849  ----------------------------Вызываем add_new_pet-------------------------------
+Параметры запроса:
+
+{'key': '111'}, 'Гаага', 'Гусь', 3, 'G:\\d\\Work\\QAP\\Auto\\pythonProject\\PetFriends_API_Test\\tests\\images/goose.jpg'
+
+ 2022-05-27 11:32:11.002104  ---------------------------Функция 'add_new_pet' вернула значение-----------------
+
+Код ответа - 404
+
+Тело ответа:
+
+ <!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>Heroku | Application Error</title>
+    <style media="screen">
+      html,body,iframe {
+        margin: 0;
+        padding: 0;
+      }
+      html,body {
+        height: 100%;
+        overflow: hidden;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <iframe src="//www.herokucdn.com/error-pages/no-such-app.html"></iframe>
+  </body>
+</html>
+
+
+ 2022-05-27 11:32:11.038034  ----------------------------Вызываем get_list_of_pets-------------------------------
+Параметры запроса:
+
+{'key': '111'}, 'my_pets'
+
+ 2022-05-27 11:32:11.486475  ---------------------------Функция 'get_list_of_pets' вернула значение-----------------
+
+Код ответа - 404
+
+Тело ответа:
+
+ <!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>Heroku | Application Error</title>
+    <style media="screen">
+      html,body,iframe {
+        margin: 0;
+        padding: 0;
+      }
+      html,body {
+        height: 100%;
+        overflow: hidden;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <iframe src="//www.herokucdn.com/error-pages/no-such-app.html"></iframe>
+  </body>
+</html>
+
+
+ 2022-05-27 11:32:11.521418  ----------------------------Вызываем get_list_of_pets-------------------------------
+Параметры запроса:
+
+{'key': '111'}, 'my_pets'
+
+ 2022-05-27 11:32:12.018650  ---------------------------Функция 'get_list_of_pets' вернула значение-----------------
+
+Код ответа - 404
+
+Тело ответа:
+
+ <!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>Heroku | Application Error</title>
+    <style media="screen">
+      html,body,iframe {
+        margin: 0;
+        padding: 0;
+      }
+      html,body {
+        height: 100%;
+        overflow: hidden;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <iframe src="//www.herokucdn.com/error-pages/no-such-app.html"></iframe>
+  </body>
+</html>
+
+
+ 2022-05-27 11:32:12.019647  ----------------------------Вызываем get_list_of_pets-------------------------------
+Параметры запроса:
+
+{'key': '111'}, 'my_pets'
+
+ 2022-05-27 11:32:12.492653  ---------------------------Функция 'get_list_of_pets' вернула значение-----------------
+
+Код ответа - 404
+
+Тело ответа:
+
+ <!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>Heroku | Application Error</title>
+    <style media="screen">
+      html,body,iframe {
+        margin: 0;
+        padding: 0;
+      }
+      html,body {
+        height: 100%;
+        overflow: hidden;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <iframe src="//www.herokucdn.com/error-pages/no-such-app.html"></iframe>
+  </body>
+</html>
+
+
+ 2022-05-27 11:53:21.940687  ----------------------------Вызываем get_api_key-------------------------------
+Параметры запроса:
+
+
+
+
+ 2022-05-27 11:53:22.047401  ----------------------------Вызываем get_api_key-------------------------------
+Параметры запроса:
+
+
+
+
+ 2022-05-27 11:53:56.889098  ----------------------------Вызываем get_api_key-------------------------------
+Параметры запроса:
+
+
+
+
+ 2022-05-27 11:53:56.992824  ----------------------------Вызываем get_api_key-------------------------------
+Параметры запроса:
+
+
+
+
+ 2022-05-27 12:02:44.336460  ----------------------------Вызываем get_api_key-------------------------------
+Параметры запроса:
+
+
+
+
+ 2022-05-27 12:02:44.448137  ----------------------------Вызываем get_api_key-------------------------------
+Параметры запроса:
+
+
+
+
+ 2022-05-27 12:02:44.454150  ----------------------------Вызываем get_api_key-------------------------------
+Параметры запроса:
+
+
+
+
+ 2022-05-27 12:02:44.464095  ----------------------------Вызываем get_api_key-------------------------------
+Параметры запроса:
+
+
+
+
+ 2022-05-27 12:02:44.470079  ----------------------------Вызываем get_api_key-------------------------------
+Параметры запроса:
+
+
+
+
+ 2022-05-27 12:02:44.480054  ----------------------------Вызываем get_api_key-------------------------------
+Параметры запроса:
+
+
+
+
+ 2022-05-27 12:02:44.486038  ----------------------------Вызываем get_api_key-------------------------------
+Параметры запроса:
+
+
+
+
+ 2022-05-27 12:02:44.496165  ----------------------------Вызываем get_api_key-------------------------------
+Параметры запроса:
+
+
+
+
+ 2022-05-27 12:02:44.502176  ----------------------------Вызываем get_api_key-------------------------------
+Параметры запроса:
+
+
+
+
+ 2022-05-27 12:05:23.440771  ----------------------------Вызываем get_api_key-------------------------------
+Параметры запроса:
+
+'afvaegffewafgwe@gmail.com', 'afwwfwaffaw'
+
+ 2022-05-27 12:05:23.978896  ---------------------------Функция 'get_api_key' вернула значение-----------------
+
+Код ответа - 404
+
+Тело ответа:
+
+ <!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>Heroku | Application Error</title>
+    <style media="screen">
+      html,body,iframe {
+        margin: 0;
+        padding: 0;
+      }
+      html,body {
+        height: 100%;
+        overflow: hidden;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <iframe src="//www.herokucdn.com/error-pages/no-such-app.html"></iframe>
+  </body>
+</html>
+
+
+ 2022-05-27 12:06:29.478148  ----------------------------Вызываем get_api_key-------------------------------
+Параметры запроса:
+
+
+
+
+ 2022-05-27 12:06:29.578855  ----------------------------Вызываем get_api_key-------------------------------
+Параметры запроса:
+
+
+
+
+ 2022-05-27 12:06:29.592817  ----------------------------Вызываем get_api_key-------------------------------
+Параметры запроса:
+
+
+
+
+ 2022-05-27 12:06:29.599827  ----------------------------Вызываем get_api_key-------------------------------
+Параметры запроса:
+
+
+
+
+ 2022-05-27 12:06:29.607777  ----------------------------Вызываем get_api_key-------------------------------
+Параметры запроса:
+
+
+
+
+ 2022-05-27 12:06:29.613790  ----------------------------Вызываем get_api_key-------------------------------
+Параметры запроса:
+
+
+
+
+ 2022-05-27 12:06:29.623736  ----------------------------Вызываем get_api_key-------------------------------
+Параметры запроса:
+
+
+
+
+ 2022-05-27 12:07:36.094182  ----------------------------Вызываем get_api_key-------------------------------
+Параметры запроса:
+
+
+
+
+ 2022-05-27 12:07:36.202890  ----------------------------Вызываем get_api_key-------------------------------
+Параметры запроса:
+
+
+
+
+ 2022-05-27 12:07:36.209872  ----------------------------Вызываем get_api_key-------------------------------
+Параметры запроса:
+
+
+
+
+ 2022-05-27 12:07:36.232810  ----------------------------Вызываем get_api_key-------------------------------
+Параметры запроса:
+
+
+
+
+ 2022-05-27 12:07:36.239793  ----------------------------Вызываем get_api_key-------------------------------
+Параметры запроса:
+
+
+
+
+ 2022-05-27 12:07:36.255750  ----------------------------Вызываем get_api_key-------------------------------
+Параметры запроса:
+
+
+
+
+ 2022-05-27 12:07:36.263727  ----------------------------Вызываем get_api_key-------------------------------
+Параметры запроса:
+
+

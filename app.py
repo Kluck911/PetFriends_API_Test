@@ -6,7 +6,7 @@ from decorators import log
 
 class PetFriends:
     def __init__(self):
-        self.base_url = 'https://petfriends1.herokuapp.com/'
+        self.base_url = 'https://petfriends.skillfactory.ru/'
 
     @log
     def get_api_key(self, email: str, passwd: str) -> json:

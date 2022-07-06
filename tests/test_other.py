@@ -4,6 +4,7 @@ import pytest
 
 from app import PetFriends
 from settings import user_email, user_passwd
+from decorators import generate_string, chinese_chars, russian_chars, special_chars
 
 
 pf = PetFriends()
@@ -48,7 +49,16 @@ class TestsPetsAPI:
 
     @pytest.mark.act
     @pytest.mark.pos
-    def test_successful_update_pet_info(self, get_key, name='Гуся', animal_type='Гус', age=5):
+    @pytest.mark.parametrize("name"
+        , [generate_string(255), generate_string(1001), russian_chars(), russian_chars().upper(), chinese_chars(),
+           special_chars(), '123']
+        , ids=['255 symbols', 'more than 1000 symbols', 'russian', 'RUSSIAN', 'chinese', 'specials', 'digit'])
+    @pytest.mark.parametrize("animal_type"
+        , [generate_string(255), generate_string(1001), russian_chars(), russian_chars().upper(), chinese_chars(),
+           special_chars(), '123']
+        , ids=['255 symbols', 'more than 1000 symbols', 'russian', 'RUSSIAN', 'chinese', 'specials', 'digit'])
+    @pytest.mark.parametrize("age", [1], ids=['min_age'])
+    def test_successful_update_pet_info(self, get_key, name, animal_type, age):
         """Проверяем возможность обновления информации о питомце"""
 
         _, my_pets = pf.get_list_of_pets(get_key, 'my_pets')

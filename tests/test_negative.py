@@ -6,6 +6,7 @@ import pytest
 
 from app import PetFriends
 from settings import invalid_user, invalid_passwd, user_email, user_passwd
+from decorators import generate_string, russian_chars, chinese_chars, special_chars
 
 pf = PetFriends()
 

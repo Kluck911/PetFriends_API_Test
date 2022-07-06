@@ -32,7 +32,13 @@ class TestsPetsAPI:
 
     @pytest.mark.auth
     @pytest.mark.neg
-    def test_get_api_key_invalid_email(self, email=invalid_user, passwd=user_passwd):
+    @pytest.mark.parametrize('email',
+                             [generate_string(255)],
+                             ids=['Invalid_email'])
+    @pytest.mark.parametrize('passwd',
+                             [user_passwd],
+                             ids=['Valid_password'])
+    def test_get_api_key_invalid_email(self, email, passwd):
         """ Проверяем что запрос api ключа возвращает статус 403 если email не валидный"""
 
         status, _ = pf.get_api_key(email, passwd)
@@ -40,7 +46,13 @@ class TestsPetsAPI:
 
     @pytest.mark.auth
     @pytest.mark.neg
-    def test_get_api_key_invalid_pass(self, email=user_email, passwd=invalid_passwd):
+    @pytest.mark.parametrize('email',
+                             [user_email],
+                             ids=['Valid_email'])
+    @pytest.mark.parametrize('passwd',
+                             [generate_string(255)],
+                             ids=['Invalid_password'])
+    def test_get_api_key_invalid_pass(self, email, passwd):
         """ Проверяем что запрос api ключа возвращает статус 403 если пароль не валидный"""
 
         status, _ = pf.get_api_key(email, passwd)
@@ -49,7 +61,13 @@ class TestsPetsAPI:
 
     @pytest.mark.auth
     @pytest.mark.neg
-    def test_get_api_key_invalid_pass_and_email(self, email=invalid_user, passwd=invalid_passwd):
+    @pytest.mark.parametrize('email',
+                             [generate_string(255)],
+                             ids=['Invalid_email'])
+    @pytest.mark.parametrize('passwd',
+                             [generate_string(255)],
+                             ids=['Invalid_password'])
+    def test_get_api_key_invalid_pass_and_email(self, email, passwd):
         """ Проверяем что запрос api ключа возвращает статус 403 если логин и пароль не валидны"""
 
         status, _ = pf.get_api_key(email, passwd)
@@ -58,31 +76,41 @@ class TestsPetsAPI:
 
     @pytest.mark.act
     @pytest.mark.neg
-    def test_get_list_of_pets_with_invalid_key(self, filter=''):
+    @pytest.mark.parametrize('filter',
+                             [''],
+                             ids=['filter_empty'])
+    @pytest.mark.parametrize('key_value',
+                             [generate_string(255)],
+                             ids=['Invalid_key'])
+    def test_get_list_of_pets_with_invalid_key(self, key_value, filter):
         """ Проверяем что запрос всех питомцев возвращает статус 403 если
         полученный ключ не валидный"""
 
-        status, _ = pf.get_list_of_pets({'key': '111'}, filter)
+        status, _ = pf.get_list_of_pets({'key': key_value}, filter)
 
         assert status == 403
 
     @pytest.mark.act
     @pytest.mark.neg
-    def test_add_new_pet_with_invalid_key(self, name='Гаага', animal_type='Гусь',
-                                          age=3, pet_photo='images/goose.jpg'):
-        """ Проверяем что добавление нового питомца возвращает статус 403 если
-        полученный ключ не валидный"""
+    @pytest.mark.skip(reason="Баг - все некорректные значения проходят")
+    @pytest.mark.parametrize("name", [''], ids=['empty'])
+    @pytest.mark.parametrize("animal_type", [''], ids=['empty'])
+    @pytest.mark.parametrize("age",
+                             ['', '-1', '1.5', '2147483647', '2147483648', special_chars(), russian_chars(),
+                              russian_chars().upper(), chinese_chars()],
+                             ids=['empty', 'negative', 'float', 'int_max', 'int_max + 1', 'specials', 'russian',
+                                  'RUSSIAN', 'chinese'])
+    def test_add_pet_simple_negative(self, get_key, name, animal_type, age):
+        """Проверяем быстрое добавдение питомца с некорректным возрастом"""
 
-        pet_photo = os.path.join(os.path.dirname(__file__), pet_photo)
-        auth_key = {'key': '111'}
+        status, result = pf.add_pet_simple(get_key, name, animal_type, age)
 
-        status, result = pf.add_new_pet(auth_key, name, animal_type, age, pet_photo)
+        assert status == 400
 
-        assert status == 403
 
     @pytest.mark.act
     @pytest.mark.neg
-    @pytest.mark.skip(reason="Возникает серверная ошибка 500")
+    @pytest.mark.skip(reason="Баг - картинка загружается")
     def test_add_new_pet_with_petpic_not_jpeg(self, get_key, name='Гаага', animal_type='Гусь',
                                               age=3, pet_photo='images/petpic.jpg'):
         """Проверяем что нельзя загрузить "битую картинку"""

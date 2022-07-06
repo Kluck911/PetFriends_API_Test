@@ -5,6 +5,7 @@ import pytest
 
 from app import PetFriends
 from settings import user_email, user_passwd
+from decorators import generate_string, chinese_chars, russian_chars, special_chars
 
 
 pf = PetFriends()
@@ -30,8 +31,18 @@ def request_fixture(request):
 class TestsPetsAPI:
     @pytest.mark.act
     @pytest.mark.pos
-    def test_add_new_pet_with_valid_key(self, get_key, name='Гаага', animal_type='Гусь',
-                                        age=3, pet_photo='images/goose.jpg'):
+    @pytest.mark.parametrize("name",
+                             [generate_string(255), generate_string(1001), russian_chars(), russian_chars().upper(),
+                              chinese_chars(), special_chars(), '123'],
+                             ids=['255 symbols', 'more than 1000 symbols', 'russian', 'RUSSIAN', 'chinese', 'specials',
+                                  'digit'])
+    @pytest.mark.parametrize("animal_type",
+                             [generate_string(255), generate_string(1001), russian_chars(), russian_chars().upper(),
+                              chinese_chars(), special_chars(), '123'],
+                             ids=['255 symbols', 'more than 1000 symbols', 'russian', 'RUSSIAN', 'chinese', 'specials',
+                                  'digit'])
+    @pytest.mark.parametrize("age", [1, 1000], ids=['min_age', 'max_age'])
+    def test_add_new_pet_with_valid_key(self, get_key, name, animal_type, age, pet_photo='images/goose.jpg'):
         """Проверяем что можно добавить питомца с корректными данными"""
 
         pet_photo = os.path.join(os.path.dirname(__file__), pet_photo)
@@ -43,8 +54,19 @@ class TestsPetsAPI:
 
     @pytest.mark.act
     @pytest.mark.pos
-    def test_add_pet_simple_with_valid_key(self, get_key, name='Гагага', animal_type='Гусь', age=3):
-        """Проверяем что можно добавить питомца с корректными данными"""
+    @pytest.mark.parametrize("name",
+                             [generate_string(255), generate_string(1001), russian_chars(), russian_chars().upper(),
+                              chinese_chars(), special_chars(), '123'],
+                             ids=['255 symbols', 'more than 1000 symbols', 'russian', 'RUSSIAN', 'chinese', 'specials',
+                                  'digit'])
+    @pytest.mark.parametrize("animal_type",
+                             [generate_string(255), generate_string(1001), russian_chars(), russian_chars().upper(),
+                              chinese_chars(), special_chars(), '123'],
+                             ids=['255 symbols', 'more than 1000 symbols', 'russian', 'RUSSIAN', 'chinese', 'specials',
+                                  'digit'])
+    @pytest.mark.parametrize("age", [1, 1000], ids=['min_age', 'max_age'])
+    def test_add_pet_simple_with_valid_key(self, get_key, name, animal_type, age):
+        """Проверяем быстрое добавдение питомца с корректными данными"""
 
         status, result = pf.add_pet_simple(get_key, name, animal_type, age)
 
@@ -53,8 +75,18 @@ class TestsPetsAPI:
 
     @pytest.mark.act
     @pytest.mark.pos
-    def test_add_photo_of_pet_with_valid_key(self, get_key, name='Гусек', animal_type='Гусь', age=35,
-                                             pet_photo='images/goose2.jpg'):
+    @pytest.mark.parametrize("name",
+                             [generate_string(255), generate_string(1001), russian_chars(), russian_chars().upper(),
+                              chinese_chars(), special_chars(), '123'],
+                             ids=['255 symbols', 'more than 1000 symbols', 'russian', 'RUSSIAN', 'chinese', 'specials',
+                                  'digit'])
+    @pytest.mark.parametrize("animal_type",
+                             [generate_string(255), generate_string(1001), russian_chars(), russian_chars().upper(),
+                              chinese_chars(), special_chars(), '123'],
+                             ids=['255 symbols', 'more than 1000 symbols', 'russian', 'RUSSIAN', 'chinese', 'specials',
+                                  'digit'])
+    @pytest.mark.parametrize("age", [1, 1000], ids=['min_age', 'max_age'])
+    def test_add_photo_of_pet_with_valid_key(self, get_key, name, animal_type, age, pet_photo='images/goose2.jpg'):
         """Проверяем что можно добавить фото для питомца созданного при помощи
         add_pet_simple с корректными данными"""
 

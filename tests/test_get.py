@@ -20,12 +20,6 @@ def get_key(email=user_email, passwd=user_passwd):
     return result
 
 
-@pytest.fixture(autouse=True)
-def request_fixture(request):
-    if "Pets" in request.cls.__name__:
-        print(f"\nЗапущен тест из сьюта Дом Питомца: {request.function.__name__}")
-
-
 class TestsPetsAPI:
     @pytest.mark.pos
     @pytest.mark.auth
@@ -51,8 +45,11 @@ class TestsPetsAPI:
         """ Проверяем что запрос всех питомцев возвращает не пустой список. """
 
         status, result = pf.get_list_of_pets(get_key, filter)
-        assert status == 200
-        assert len(result['pets']) > 0
+        if len(result['pets']) > 0:
+            assert status == 200
+            assert len(result['pets']) > 0
+        else:
+            raise Exception('У Вас нет питомцев, плак, плак :(')
 
 
 @pytest.fixture(autouse=True)

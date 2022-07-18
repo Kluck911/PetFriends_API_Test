@@ -34,8 +34,7 @@ class TestsPetsAPI:
         """Проверяем возможность удаления питомца"""
 
         _, my_pets = pf.get_list_of_pets(get_key, 'my_pets')
-
-        if len(my_pets) == 0:
+        if len(my_pets['pets']) == 0:
             pf.add_new_pet(get_key, 'Гаага111', 'Гусь111', 999, 'images/goose.jpg')
             _, my_pets = pf.get_list_of_pets(get_key, 'my_pets')
 
@@ -72,6 +71,24 @@ class TestsPetsAPI:
             assert result['name'] == name
         else:
             raise Exception('У Вас нет питомцев, плак, плак :(')
+
+    @pytest.mark.act
+    @pytest.mark.pos
+    @pytest.mark.del_all
+    def test_delete_all_pet(self, get_key):
+        """Удаляем всех созданных питомцев"""
+
+        _, my_pets = pf.get_list_of_pets(get_key, 'my_pets')
+
+        while len(my_pets['pets']) > 0:
+            for i in range(len(my_pets['pets'])):
+                pet_id = my_pets['pets'][i]['id']
+                status, _ = pf.delete_pet(get_key, pet_id)
+
+                assert status == 200
+            _, my_pets = pf.get_list_of_pets(get_key, 'my_pets')
+
+        assert len(my_pets['pets']) == 0
 
 
 @pytest.fixture(autouse=True)

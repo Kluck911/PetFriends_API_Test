@@ -5,7 +5,7 @@ from datetime import datetime
 import pytest
 
 from app import PetFriends
-from settings import invalid_user, invalid_passwd, user_email, user_passwd
+from settings import user_email, user_passwd
 from decorators import generate_string, russian_chars, chinese_chars, special_chars
 
 pf = PetFriends()
@@ -106,7 +106,6 @@ class TestsPetsAPI:
         status, result = pf.add_pet_simple(get_key, name, animal_type, age)
 
         assert status == 400
-
 
     @pytest.mark.act
     @pytest.mark.neg

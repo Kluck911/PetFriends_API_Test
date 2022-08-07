@@ -8,6 +8,7 @@ pf = PetFriends()
 
 
 class TestsPetsAPI:
+    @pytest.mark.other
     @pytest.mark.act
     @pytest.mark.pos
     def test_delete_pet(self, get_key):
@@ -26,6 +27,7 @@ class TestsPetsAPI:
         assert status == 200
         assert pet_id not in my_pets.values()
 
+    @pytest.mark.other
     @pytest.mark.act
     @pytest.mark.pos
     @pytest.mark.parametrize("name",
@@ -52,6 +54,7 @@ class TestsPetsAPI:
         else:
             raise Exception('У Вас нет питомцев, плак, плак :(')
 
+    @pytest.mark.other
     @pytest.mark.act
     @pytest.mark.pos
     @pytest.mark.del_all

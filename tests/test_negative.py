@@ -9,7 +9,7 @@ from tests.params_data import generate_string, chinese_chars, russian_chars, spe
 pf = PetFriends()
 
 
-class TestsPetsAPI:
+class TestsNegAPI:
 
     @pytest.mark.auth
     @pytest.mark.neg

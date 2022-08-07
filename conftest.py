@@ -20,8 +20,14 @@ def get_key(email=my_user.login, passwd=my_user.passwd):
 
 @pytest.fixture(autouse=True)
 def request_fixture(request):
-    if "Pets" in request.cls.__name__:
-        print(f"\nЗапущен тест из сьюта Дом Питомца: {request.function.__name__}")
+    if "Get" in request.cls.__name__:
+        print(f"\nЗапущен тест из сьюта test_get: {request.function.__name__}")
+    if "Add" in request.cls.__name__:
+        print(f"\nЗапущен тест из сьюта test_add: {request.function.__name__}")
+    if "Neg" in request.cls.__name__:
+        print(f"\nЗапущен тест из сьюта test_negative: {request.function.__name__}")
+    if "Other" in request.cls.__name__:
+        print(f"\nЗапущен тест из сьюта tests_other: {request.function.__name__}")
 
 
 @pytest.fixture(autouse=True)

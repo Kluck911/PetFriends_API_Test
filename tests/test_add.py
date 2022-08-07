@@ -9,7 +9,8 @@ from tests.params_data import generate_string, chinese_chars, russian_chars, spe
 pf = PetFriends()
 
 
-class TestsPetsAPI:
+class TestsAddAPI:
+    @pytest.mark.add
     @pytest.mark.act
     @pytest.mark.pos
     @pytest.mark.parametrize("name",
@@ -33,6 +34,7 @@ class TestsPetsAPI:
         assert status == 200
         assert result['name'] == name
 
+    @pytest.mark.add
     @pytest.mark.act
     @pytest.mark.pos
     @pytest.mark.parametrize("name",
@@ -54,6 +56,7 @@ class TestsPetsAPI:
         assert status == 200
         assert result['name'] == name
 
+    @pytest.mark.add
     @pytest.mark.act
     @pytest.mark.pos
     @pytest.mark.parametrize("name",

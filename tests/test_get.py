@@ -1,5 +1,3 @@
-from datetime import datetime
-
 import pytest
 
 from app import PetFriends
@@ -7,17 +5,6 @@ from settings import user_email, user_passwd
 
 
 pf = PetFriends()
-
-
-@pytest.fixture(scope='class')
-def get_key(email=user_email, passwd=user_passwd):
-
-    status, result = pf.get_api_key(email, passwd)
-    assert status == 200
-    assert 'key' in result
-    print('\nreturn auth_key')
-
-    return result
 
 
 class TestsPetsAPI:
@@ -50,11 +37,3 @@ class TestsPetsAPI:
             assert len(result['pets']) > 0
         else:
             raise Exception('У Вас нет питомцев, плак, плак :(')
-
-
-@pytest.fixture(autouse=True)
-def time_delta():
-    start_time = datetime.now()
-    yield
-    stop_time = datetime.now()
-    print(f'\nТест шел: {stop_time-start_time}')

@@ -1,30 +1,10 @@
-from datetime import datetime
-
 import pytest
 
 from app import PetFriends
-from settings import user_email, user_passwd
 from decorators import generate_string, chinese_chars, russian_chars, special_chars
 
 
 pf = PetFriends()
-
-
-@pytest.fixture(scope='class')
-def get_key(email=user_email, passwd=user_passwd):
-
-    status, result = pf.get_api_key(email, passwd)
-    assert status == 200
-    assert 'key' in result
-    print('\nreturn auth_key')
-
-    return result
-
-
-@pytest.fixture(autouse=True)
-def request_fixture(request):
-    if "Pets" in request.cls.__name__:
-        print(f"\nЗапущен тест из сьюта Дом Питомца: {request.function.__name__}")
 
 
 class TestsPetsAPI:
@@ -89,11 +69,3 @@ class TestsPetsAPI:
             _, my_pets = pf.get_list_of_pets(get_key, 'my_pets')
 
         assert len(my_pets['pets']) == 0
-
-
-@pytest.fixture(autouse=True)
-def time_delta():
-    start_time = datetime.now()
-    yield
-    stop_time = datetime.now()
-    print(f'\nТест шел: {stop_time-start_time}')

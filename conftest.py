@@ -1,7 +1,6 @@
 import pytest
 
 from app import PetFriends
-
 from settings import my_user
 from datetime import datetime
 

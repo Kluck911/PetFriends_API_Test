@@ -6,3 +6,4 @@ class User:
 
 my_user = User(login="afvaegffewafgwe@gmail.com", passwd="afwwfwaffaw")
 skillfactory_user = User(login='vasya@mail.com', passwd='12345')
+unknown_user = User(login="weqfwe@wfefew.com", passwd="11111d111")

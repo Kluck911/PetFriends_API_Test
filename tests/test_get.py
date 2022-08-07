@@ -8,6 +8,7 @@ pf = PetFriends()
 
 
 class TestsPetsAPI:
+
     @pytest.mark.pos
     @pytest.mark.auth
     @pytest.mark.parametrize('email',

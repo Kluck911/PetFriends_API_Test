@@ -3,7 +3,7 @@ import os
 import pytest
 
 from app import PetFriends
-from decorators import generate_string, chinese_chars, russian_chars, special_chars
+from tests.params_data import generate_string, chinese_chars, russian_chars, special_chars
 
 
 pf = PetFriends()

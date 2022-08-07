@@ -1,11 +1,10 @@
 import os
 import sys
-
 import pytest
 
 from app import PetFriends
 from settings import my_user
-from decorators import generate_string, russian_chars, chinese_chars, special_chars
+from tests.params_data import generate_string, chinese_chars, russian_chars, special_chars
 
 pf = PetFriends()
 

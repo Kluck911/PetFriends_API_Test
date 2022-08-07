@@ -1,7 +1,7 @@
 import pytest
 
 from app import PetFriends
-from settings import user_email, user_passwd
+from settings import my_user
 
 
 pf = PetFriends()
@@ -11,10 +11,10 @@ class TestsPetsAPI:
     @pytest.mark.pos
     @pytest.mark.auth
     @pytest.mark.parametrize('email',
-                             [user_email],
+                             [my_user.login],
                              ids=['Valid_email'])
     @pytest.mark.parametrize('passwd',
-                             [user_passwd],
+                             [my_user.passwd],
                              ids=['Valid_password'])
     def test_get_api_key_valid_user(self, email, passwd):
         """ Проверяем что запрос api ключа возвращает статус 200 и в результате содержится слово key"""

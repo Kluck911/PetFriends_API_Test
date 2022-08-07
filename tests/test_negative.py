@@ -4,7 +4,7 @@ import sys
 import pytest
 
 from app import PetFriends
-from settings import user_email, user_passwd
+from settings import my_user
 from decorators import generate_string, russian_chars, chinese_chars, special_chars
 
 pf = PetFriends()
@@ -18,7 +18,7 @@ class TestsPetsAPI:
                              [generate_string(255)],
                              ids=['Invalid_email'])
     @pytest.mark.parametrize('passwd',
-                             [user_passwd],
+                             [my_user.passwd],
                              ids=['Valid_password'])
     def test_get_api_key_invalid_email(self, email, passwd):
         """ Проверяем что запрос api ключа возвращает статус 403 если email не валидный"""
@@ -29,7 +29,7 @@ class TestsPetsAPI:
     @pytest.mark.auth
     @pytest.mark.neg
     @pytest.mark.parametrize('email',
-                             [user_email],
+                             [my_user.login],
                              ids=['Valid_email'])
     @pytest.mark.parametrize('passwd',
                              [generate_string(255)],

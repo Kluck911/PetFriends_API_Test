@@ -1,19 +1,20 @@
 import pytest
 
 from app import PetFriends
+
+from settings import my_user
 from datetime import datetime
-from settings import user_email, user_passwd
+
 
 pf = PetFriends()
 
 
 @pytest.fixture(scope='class')
-def get_key(email=user_email, passwd=user_passwd):
+def get_key(email=my_user.login, passwd=my_user.passwd):
 
     status, result = pf.get_api_key(email, passwd)
     assert status == 200
     assert 'key' in result
-    print('\nreturn auth_key')
 
     return result
 

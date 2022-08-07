@@ -146,7 +146,6 @@ class PetFriends:
         res = requests.post(self.base_url + 'api/create_pet_simple', headers=headers, data=data)
         status = res.status_code
         result = ""
-
         try:
             result = res.json()
         except json.decoder.JSONDecodeError:

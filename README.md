@@ -1,6 +1,6 @@
 # Introduction
 
-This folder contains functional tests for https://petfriends.skillfactory.ru/
+This folder contains functional tests for the pets site: https://petfriends.skillfactory.ru/
 
 All tests were created within the educational project and can be improved.
 

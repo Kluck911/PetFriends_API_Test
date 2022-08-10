@@ -29,7 +29,7 @@ Also you can run test with additional parametres:
   - act (all tests action with pets)
   - pos (all pisitive tests)
 
-Please, can you run the command "py.test -v -m 'del_all'", when you will finish work with tests.
+Please, run "py.test -v -m 'del_all'", when you finish working with the tests.
 
 # Note
 

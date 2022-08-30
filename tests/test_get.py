@@ -7,8 +7,8 @@ from settings import my_user
 pf = PetFriends()
 
 
+@pytest.mark.get
 class TestsGetAPI:
-    @pytest.mark.get
     @pytest.mark.pos
     @pytest.mark.auth
     @pytest.mark.parametrize('email',
@@ -24,7 +24,6 @@ class TestsGetAPI:
         assert status == 200
         assert 'key' in result
 
-    @pytest.mark.get
     @pytest.mark.act
     @pytest.mark.pos
     @pytest.mark.parametrize("filter",

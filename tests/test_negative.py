@@ -9,10 +9,10 @@ from tests.params_data import generate_string, chinese_chars, russian_chars, spe
 pf = PetFriends()
 
 
+@pytest.mark.neg
 class TestsNegAPI:
 
     @pytest.mark.auth
-    @pytest.mark.neg
     @pytest.mark.parametrize('email',
                              [generate_string(255)],
                              ids=['Invalid_email'])
@@ -26,7 +26,6 @@ class TestsNegAPI:
         assert status == 403
 
     @pytest.mark.auth
-    @pytest.mark.neg
     @pytest.mark.parametrize('email',
                              [my_user.login],
                              ids=['Valid_email'])
@@ -41,7 +40,6 @@ class TestsNegAPI:
         assert status == 403
 
     @pytest.mark.auth
-    @pytest.mark.neg
     @pytest.mark.parametrize('email',
                              [generate_string(255)],
                              ids=['Invalid_email'])
@@ -56,7 +54,6 @@ class TestsNegAPI:
         assert status == 403
 
     @pytest.mark.act
-    @pytest.mark.neg
     @pytest.mark.parametrize('filter',
                              [''],
                              ids=['filter_empty'])
@@ -72,7 +69,6 @@ class TestsNegAPI:
         assert status == 403
 
     @pytest.mark.act
-    @pytest.mark.neg
     @pytest.mark.skip(reason="Баг - все некорректные значения проходят")
     @pytest.mark.parametrize("name", [''], ids=['empty'])
     @pytest.mark.parametrize("animal_type", [''], ids=['empty'])
@@ -89,7 +85,6 @@ class TestsNegAPI:
         assert status == 400
 
     @pytest.mark.act
-    @pytest.mark.neg
     @pytest.mark.skip(reason="Баг - картинка загружается")
     def test_add_new_pet_with_petpic_not_jpeg(self, get_key, name='Гаага', animal_type='Гусь',
                                               age=3, pet_photo='images/petpic.jpg'):
@@ -102,7 +97,6 @@ class TestsNegAPI:
         assert status == 403
 
     @pytest.mark.act
-    @pytest.mark.neg
     def test_delete_pet_with_invalid_key(self):
         """ Проверяем что запрос удаления питомца возвращает статус 403 если
         полученный ключ не валидный"""
@@ -113,7 +107,6 @@ class TestsNegAPI:
         assert status == 403
 
     @pytest.mark.act
-    @pytest.mark.neg
     def test_successful_update_pet_info_with_invalid_key(self):
         """Проверяем возможность обновления информации c неверным ключем"""
 
@@ -125,7 +118,6 @@ class TestsNegAPI:
         assert status == 403
 
     @pytest.mark.act
-    @pytest.mark.neg
     @pytest.mark.xfail(sys.platform == "win32", reason="Ошибка в системной библиотеке")
     def test_successful_update_pet_id_incorrect(self, get_key, name='Гуся', animal_type='Гус', age=2):
         """Проверяем возникновение ошибки 400, если pet id введен некорректно"""
@@ -138,7 +130,6 @@ class TestsNegAPI:
             assert status == 400
 
     @pytest.mark.act
-    @pytest.mark.neg
     def test_successful_update_pet_id_is_null(self, get_key, name='Гуся', animal_type='Гус', age=2):
         """Проверяем возникновение ошибки 404, если pet id отсутствует"""
 

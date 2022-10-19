@@ -1,6 +1,6 @@
 # Introduction
 
-This folder contains functional tests for the pets site: https://petfriends.skillfactory.ru/
+The tests folder contains some tests for the pets site: https://petfriends.skillfactory.ru/
 
 All tests were created within the educational project and can be improved.
 
@@ -25,9 +25,9 @@ To run negative test suite:
         py.test -v -m 'neg'
   
 Also you can run test with additional parametres: 
-  - auth (all autorisation tests)
+  - auth (all authorization tests)
   - act (all tests action with pets)
-  - pos (all pisitive tests)
+  - pos (all positive tests)
 
 Please, run "py.test -v -m 'del_all'", when you finish working with the tests.
 
